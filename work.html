@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — By Chevelle</title>
+<meta name="description" content="A look at recent client work — custom websites for founders, professionals, nonprofits, and organizations.">
+<link rel="icon" type="image/png" href="assets/images/phone-web.png" data-bind-attr="site.favicon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/shared.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <div class="header-logo-wrap">
+      <a href="index.html"><img src="assets/images/logo-primary-web.png" alt="By Chevelle — Call in the Pro" class="header-logo" data-bind-attr="site.logo_primary"></a>
+    </div>
+    <nav class="header-nav">
+      <a href="work.html">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="process.html">Process</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#inquiry" class="cta">Inquire</a>
+    </nav>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <a href="index.html" class="page-back">← Back home</a>
+    <div class="hero-eyebrow">The portfolio</div>
+    <h1>Sites that <em>look the part.</em></h1>
+    <p class="page-hero-lead">Recent client work, from one-pagers to full multipage builds. Every site is custom-designed, custom-written, and built to be self-managed by the client.</p>
+  </div>
+</section>
+
+<!-- WORK HUB -->
+<section class="work-hub">
+  <div class="container">
+    <div class="work-hub-grid" data-bind-list="work.projects">
+      <!-- Projects rendered by JS -->
+    </div>
+
+    <div style="text-align: center; margin-top: 4rem;">
+      <a href="index.html#inquiry" class="btn btn-primary">Start your project →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-logo-mark">
+      <div class="footer-logo-mark-inner">
+        <a href="index.html"><img src="assets/images/logo-primary-web.png" alt="By Chevelle" data-bind-attr="site.logo_footer"></a>
+      </div>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>About</h4>
+        <p class="footer-blurb" data-bind="site.footer_about">Custom websites for founders, professionals, nonprofits, and organizations who are ready to show up online with intention.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="process.html">Process</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="index.html#inquiry">Inquire</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a data-bind-attr="site.instagram_url" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a data-bind-attr="site.email"><span data-bind="site.email">hello@bychevelle.com</span></a></li>
+          <li><a href="index.html#inquiry">Start a project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span data-bind="site.copyright_year">2026</span> By Chevelle. All rights reserved.</div>
+      <div class="footer-bottom-credit" data-bind="site.footer_credit">Designed &amp; built by Chevelle. Of course.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

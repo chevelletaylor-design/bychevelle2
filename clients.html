@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clients — By Chevelle</title>
+<meta name="description" content="Welcome to your project space.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="assets/images/phone-web.png" data-bind-attr="site.favicon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/shared.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<div class="gate-preview-wrap locked" id="page-wrap">
+
+<!-- HEADER -->
+<header class="site-header no-logo" id="site-header">
+  <div class="header-inner">
+    <div class="header-logo-wrap">
+      <a href="index.html"><img src="assets/images/logo-primary-web.png" alt="By Chevelle — Call in the Pro" class="header-logo" data-bind-attr="site.logo_primary"></a>
+    </div>
+    <nav class="header-nav">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="process.html">Process</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="terms.html">Project Terms</a>
+      <span class="nav-client">
+        <a href="clients.html" tabindex="0">
+          <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          Clients Only
+        </a>
+        <div class="nav-client-dropdown">
+          <a href="consultation.html">Consultation Quiz<span class="item-sub">Define your site direction</span></a>
+          <a href="consult-prep.html">Prep Guide<span class="item-sub">How to prepare for our call</span></a>
+          <a href="feedback.html">Project Feedback<span class="item-sub">Review your build in progress</span></a>
+        </div>
+      </span>
+      <a href="index.html#inquiry" class="cta">Inquire</a>
+    </nav></div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <a href="index.html#work">Work</a>
+  <a href="index.html#about">About</a>
+  <a href="process.html">Process</a>
+  <a href="index.html#pricing">Pricing</a>
+  <a href="terms.html">Project Terms</a>
+  <div class="mobile-nav-divider">For Clients</div>
+  <a href="clients.html"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Clients Home</a>
+  <a href="consult-prep.html">Prep Guide</a>
+  <a href="consultation.html">Consultation Quiz</a>
+  <a href="feedback.html">Project Feedback</a>
+  <a href="index.html#inquiry" class="cta">Inquire</a>
+</nav>
+
+<!-- LOCKED OVERLAY -->
+<div class="gate-overlay" id="gate-overlay">
+  <div class="gate-card">
+    <div class="lock-mark">
+      <svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+    </div>
+    <h1>Welcome <em>back.</em></h1>
+    <p>You're a few keystrokes from your project space. Enter the password I sent you.</p>
+    <input type="password" id="gate-input" placeholder="Project password" autocomplete="off">
+    <button class="btn btn-primary" id="gate-submit">Open →</button>
+    <div class="gate-error" id="gate-error"></div>
+  </div>
+</div>
+
+<!-- CLIENT-ONLY CONTENT -->
+<div class="gate-preview-content clients-page" id="page-content">
+
+  <section class="clients-stage">
+
+    <div class="clients-greeting">
+      <span class="eyebrow">For my clients</span>
+      <h1>You're in. <em>Welcome.</em></h1>
+    </div>
+
+    <!-- Flat illustration envelope SVG -->
+    <div class="env-flat" id="env-flat">
+      <svg viewBox="0 0 540 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Envelope body -->
+        <rect x="20" y="80" width="500" height="220" rx="8" fill="#F6F5E1" stroke="#FFCEF1" stroke-width="2"/>
+        <!-- Inside shadow line -->
+        <line x1="20" y1="200" x2="520" y2="200" stroke="#EFEDD0" stroke-width="2" stroke-dasharray="4 6"/>
+        <!-- Open flap, drawn as two diagonal lines that meet at the top point -->
+        <path d="M 20 80 L 270 30 L 520 80" fill="none" stroke="#FFCEF1" stroke-width="2.5" stroke-linejoin="round"/>
+        <!-- Decorative wax-seal style circle in center top -->
+        <circle cx="270" cy="65" r="22" fill="#E20019"/>
+        <text x="270" y="72" text-anchor="middle" fill="#F6F5E1" font-family="Pinyon Script, cursive" font-style="italic" font-size="22">C</text>
+        <!-- Tiny dotted accent at bottom corners -->
+        <circle cx="50" cy="280" r="3" fill="#FFCEF1"/>
+        <circle cx="490" cy="280" r="3" fill="#FFCEF1"/>
+      </svg>
+    </div>
+
+    <!-- The letter that slides up out of the envelope -->
+    <div class="env-letter" id="env-letter">
+      <div class="letter-monogram">By&nbsp;C</div>
+      <h2 class="letter-greeting">Welcome — and thank you.</h2>
+      <p class="letter-body">I'm so glad you're here. This is your private space — every tool you'll need to start, run, and review your project lives behind this lock.</p>
+      <p class="letter-body">Below, the three steps to walk through during our work together. Read through them, follow them in order, and reach out anytime you need me.</p>
+      <div class="letter-signoff">— Chevelle</div>
+    </div>
+
+    <!-- Numbered steps -->
+    <div class="clients-steps">
+      <div class="clients-steps-heading">
+        <span class="eyebrow">Your roadmap</span>
+        <h2>Three things to do, in order.</h2>
+      </div>
+
+      <a class="step-card" href="consult-prep.html">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Read the Prep Guide</h3>
+          <p>Before our 60-minute Strategy Call, walk through this short guide. It'll help you bring the right thinking to the call.</p>
+        </div>
+        <div class="step-arrow">→</div>
+      </a>
+
+      <a class="step-card" href="consultation.html">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Take the Consultation Quiz</h3>
+          <p>An interactive walkthrough — visual styles, fonts, color combos, page structure. Your selections become the brief I build from.</p>
+        </div>
+        <div class="step-arrow">→</div>
+      </a>
+
+      <a class="step-card" href="feedback.html">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Submit Project Feedback</h3>
+          <p>During your review windows, this is where you'll send structured notes on the build. Round 1 is for big-picture changes, Round 2 is for refinement.</p>
+        </div>
+        <div class="step-arrow">→</div>
+      </a>
+    </div>
+
+  </section>
+</div>
+
+</div><!-- end gate-preview-wrap -->
+
+<script src="assets/js/site.js"></script>
+<script>
+  let validPasswords = ['demo'];
+
+  document.addEventListener('config:ready', () => {
+    if (window.VALID_CLIENT_PASSWORDS && window.VALID_CLIENT_PASSWORDS.length) {
+      validPasswords = window.VALID_CLIENT_PASSWORDS;
+    }
+  });
+
+  document.getElementById('gate-submit').addEventListener('click', tryUnlock);
+  document.getElementById('gate-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') tryUnlock();
+  });
+
+  function tryUnlock() {
+    const pw = document.getElementById('gate-input').value.trim().toLowerCase();
+    const error = document.getElementById('gate-error');
+    if (validPasswords.includes(pw)) {
+      unlockPage();
+      sessionStorage.setItem('clients-unlocked', '1');
+    } else {
+      error.textContent = 'Wrong password. Reach out if you need it resent.';
+      document.getElementById('gate-input').focus();
+      document.getElementById('gate-input').select();
+    }
+  }
+
+  function unlockPage() {
+    const wrap = document.getElementById('page-wrap');
+    if (wrap) wrap.classList.remove('locked');
+    // After envelope appears (1.4s into its fade-up), slide the letter up
+    setTimeout(() => {
+      const letter = document.getElementById('env-letter');
+      if (letter) letter.classList.add('show');
+    }, 1500);
+  }
+
+  if (sessionStorage.getItem('clients-unlocked') === '1') {
+    unlockPage();
+  }
+</script>
+</body>
+</html>

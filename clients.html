@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clients — By Chevelle</title>
+<meta name="description" content="Welcome to your project space.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="assets/images/phone-web.png" data-bind-attr="site.favicon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/shared.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<div class="gate-preview-wrap locked" id="page-wrap">
+
+<!-- HEADER -->
+<header class="site-header no-logo" id="site-header">
+  <div class="header-inner">
+    <div class="header-logo-wrap">
+      <a href="index.html"><img src="assets/images/logo-primary-web.png" alt="By Chevelle — Call in the Pro" class="header-logo" data-bind-attr="site.logo_primary"></a>
+    </div>
+    <nav class="header-nav">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="process.html">Process</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="terms.html">Project Terms</a>
+      <span class="nav-client">
+        <a href="clients.html" tabindex="0">
+          <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          Clients Only
+        </a>
+        <div class="nav-client-dropdown">
+          <a href="consultation.html">Consultation Quiz<span class="item-sub">Define your site direction</span></a>
+          <a href="consult-prep.html">Prep Guide<span class="item-sub">How to prepare for our call</span></a>
+          <a href="feedback.html">Project Feedback<span class="item-sub">Review your build in progress</span></a>
+        </div>
+      </span>
+      <a href="index.html#inquiry" class="cta">Inquire</a>
+    </nav>
+  </div>
+</header>
+
+<!-- LOCKED OVERLAY -->
+<div class="gate-overlay" id="gate-overlay">
+  <div class="gate-card">
+    <div class="lock-mark">
+      <svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+    </div>
+    <h1>Welcome <em>back.</em></h1>
+    <p>You're a few keystrokes from your project space. Enter the password I sent you.</p>
+    <input type="password" id="gate-input" placeholder="Project password" autocomplete="off">
+    <button class="btn btn-primary" id="gate-submit">Open →</button>
+    <div class="gate-error" id="gate-error"></div>
+  </div>
+</div>
+
+<!-- CLIENT-ONLY CONTENT (envelope page) -->
+<div class="gate-preview-content clients-page" id="page-content">
+
+  <section class="clients-stage">
+
+    <div class="clients-greeting">
+      <span class="eyebrow">For my clients</span>
+      <h1>You're in. <em>Welcome.</em></h1>
+    </div>
+
+    <!-- ENVELOPE -->
+    <div class="envelope-stage">
+      <div class="envelope" id="envelope">
+        <div class="envelope-body"></div>
+        <div class="envelope-letter">
+          <div class="letter-monogram">By&nbsp;C</div>
+          <h2 class="letter-greeting">Welcome — and thank you.</h2>
+          <p class="letter-body">I'm so glad you're here. This is your private space — every tool you'll need to start, run, and review your project lives behind this lock.</p>
+          <p class="letter-body">Use the navigation up top: take the <strong>Consultation Quiz</strong> to define your site's direction, read the <strong>Prep Guide</strong> before our Strategy Call, and once we're building, the <strong>Project Feedback</strong> page is where you'll review your site.</p>
+          <p class="letter-body">Anything you need that isn't here, just email me directly.</p>
+          <div class="letter-signoff">— Chevelle</div>
+        </div>
+        <div class="envelope-flap">
+          <div class="envelope-seal">C</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clients-actions">
+      <p>Take a beat with the letter above, then head to the navigation when you're ready.</p>
+    </div>
+
+  </section>
+</div>
+
+</div><!-- end gate-preview-wrap -->
+
+<script src="assets/js/site.js"></script>
+<script>
+  let validPasswords = ['demo'];
+
+  document.addEventListener('config:ready', () => {
+    if (window.VALID_CLIENT_PASSWORDS && window.VALID_CLIENT_PASSWORDS.length) {
+      validPasswords = window.VALID_CLIENT_PASSWORDS;
+    }
+  });
+
+  document.getElementById('gate-submit').addEventListener('click', tryUnlock);
+  document.getElementById('gate-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') tryUnlock();
+  });
+
+  function tryUnlock() {
+    const pw = document.getElementById('gate-input').value.trim().toLowerCase();
+    const error = document.getElementById('gate-error');
+    if (validPasswords.includes(pw)) {
+      unlockPage();
+      sessionStorage.setItem('clients-unlocked', '1');
+    } else {
+      error.textContent = 'Wrong password. Reach out if you need it resent.';
+      document.getElementById('gate-input').focus();
+      document.getElementById('gate-input').select();
+    }
+  }
+
+  function unlockPage() {
+    const wrap = document.getElementById('page-wrap');
+    if (wrap) wrap.classList.remove('locked');
+    // Trigger the envelope opening after the page settles
+    setTimeout(() => {
+      const env = document.getElementById('envelope');
+      if (env) env.classList.add('opened');
+    }, 1400);
+  }
+
+  if (sessionStorage.getItem('clients-unlocked') === '1') {
+    unlockPage();
+  }
+</script>
+</body>
+</html>

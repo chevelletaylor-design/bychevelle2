@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultation — By Chevelle</title>
+<meta name="description" content="Client consultation page — interactive selections to prepare for your strategy call.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="assets/images/phone-web.png" data-bind-attr="site.favicon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@300..700&family=Poppins:wght@300..700&family=DM+Serif+Display&family=DM+Sans:wght@300..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300..700&family=Crimson+Pro:ital,wght@0,400..700;1,400..700&family=Source+Sans+3:wght@300..700&family=Karla:wght@300..700&family=Lato:wght@300;400;700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/shared.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<div class="gate-preview-wrap locked" id="page-wrap">
+
+<!-- HEADER -->
+<header class="site-header no-logo" id="site-header">
+  <div class="header-inner">
+    <div class="header-logo-wrap">
+      <a href="index.html"><img src="assets/images/logo-primary-web.png" alt="By Chevelle — Call in the Pro" class="header-logo" data-bind-attr="site.logo_primary"></a>
+    </div>
+    <nav class="header-nav">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="process.html">Process</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="terms.html">Project Terms</a>
+      <span class="nav-client">
+        <a href="clients.html" tabindex="0">
+          <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          Clients Only
+        </a>
+        <div class="nav-client-dropdown">
+          <a href="consultation.html">Consultation Quiz<span class="item-sub">Define your site direction</span></a>
+          <a href="consult-prep.html">Prep Guide<span class="item-sub">How to prepare for our call</span></a>
+          <a href="feedback.html">Project Feedback<span class="item-sub">Review your build in progress</span></a>
+        </div>
+      </span>
+      <a href="index.html#inquiry" class="cta">Inquire</a>
+    </nav>
+  </div>
+</header>
+
+<!-- LOCKED OVERLAY -->
+<div class="gate-overlay" id="gate-overlay">
+  <div class="gate-card">
+    <div class="lock-mark">
+      <svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+    </div>
+    <h1>Client <em>only.</em></h1>
+    <p>This is your private consultation quiz — a guided walkthrough to define your site direction. Enter your project password to unlock.</p>
+    <input type="password" id="gate-input" placeholder="Project password" autocomplete="off">
+    <button class="btn btn-primary" id="gate-submit">Unlock →</button>
+    <div class="gate-error" id="gate-error"></div>
+  </div>
+</div>
+
+<!-- WIZARD CONTENT (blurred when locked) -->
+<div class="gate-preview-content" id="wizard-content">
+
+  <section class="page-hero" style="padding-bottom: 1rem;">
+    <div class="container">
+      <div class="hero-eyebrow">Your Consultation</div>
+      <h1>Let's plan <em>your site.</em></h1>
+      <p class="page-hero-lead" id="wizard-intro-lead">Each option below is a step toward defining your site. Pick what speaks to you — there are no wrong answers. Most steps allow multiple selections.</p>
+    </div>
+  </section>
+
+  <section class="wizard">
+    <div class="container">
+
+      <!-- PROGRESS BAR -->
+      <div class="wizard-progress">
+        <div class="wizard-progress-track">
+          <div class="wizard-progress-fill" id="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="wizard-progress-meta">
+          <span><span class="step-label" id="progress-current">Step 1</span> of <span id="progress-total">15</span></span>
+          <span id="progress-name">Getting started</span>
+        </div>
+        <div class="wizard-jump" id="wizard-jump"></div>
+      </div>
+
+      <!-- STEP 1: WHO -->
+      <div class="wizard-step active" data-step="1">
+        <div class="wizard-step-header">
+          <div class="wizard-step-num">Step 01</div>
+          <h2>First, <em>who's filling this out?</em></h2>
+          <p class="meta">So I know who I'm talking to when this lands in my inbox.</p>
+        </div>
+        <div class="wizard-fields">
+          <div class="inquiry-row">
+            <div class="inquiry-field">
+              <label for="w-name">Your name</label>
+              <input type="text" id="w-name" name="name" required>
+            </div>
+            <div class="inquiry-field">
+              <label for="w-email">Your email</label>
+              <input type="email" id="w-email" name="email" required>
+            </div>
+          </div>
+          <div class="inquiry-field">
+            <label for="w-business">Business name</label>
+            <input type="text" id="w-business" name="business">
+          </div>
+          <div class="inquiry-field">
+            <label for="w-mode">Are you filling this out…</label>
+            <select id="w-mode" name="mode">
+              <option value="solo">On my own (before our call)</option>
+              <option value="with-chevelle">With Chevelle on a call right now</option>
+              <option value="updating">Updating my previous answers</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: BIG PICTURE -->
+      <div class="wizard-step" data-step="2">
+        <div class="wizard-step-header">
+          <div class="wizard-step-num">Step 02</div>
+          <h2>What kind of <em>site is this?</em></h2>
+          <p class="meta">Pick one — it sets the structure for everything else.</p>
+        </div>
+        <div class="visual-grid cols-3" data-field="site_type" data-multi="false">
+          <div class="visual-card" data-value="one-page-simple">
+            <div class="visual-card-image">
+              <div class="visual-card-image-placeholder">Single text-led page</div>
+            </div>
+            <div class="visual-card-body">
+              <div class="visual-card-title">Simple One-Page</div>
+              <div class="visual-card-sub">Clean, focused, mostly text with a few photos.</div>
+            </div>
+          </div>
+          <div class="visual-card" data-value="one-page-rich">
+            <div class="visual-card-image">
+              <div class="visual-card-image-placeholder">Rich one-pager with media</div>
+            </div>
+            <div class="visual-card-body">
+              <div class="visual-card-title">Built-Out One-Page</div>
+              <div class="visual-card-sub">Galleries, video, multiple sections — but still one page.</div>
+            </div>
+          </div>
+          <div class="visual-card" data-value="multipage">
+            <div class="visual-card-image">
+              <div class="visual-card-image-placeholder">5+ pages</div>
+            </div>
+            <div class="visual-card-body">
+              <div class="visual-card-title">Multipage Site</div>
+              <div class="visual-card-sub">Home, About, Services, Contact, etc. Standard business site.</div>
+            </div>
+          </div>
+          <div class="visual-card" data-value="portfolio">
+            <div class="visual-card-image">
+              <div class="visual-card-image-placeholder">Portfolio / showcase</div>
+            </div>
+            <div class="visual-card-body">
+              <div class="visual-card-title">Portfolio</div>
+              <div class="visual-card-sub">Visual work showcase — designer, photographer, artist.</div>
+            </div>
+          </div>
+          <div class="visual-card" data-value="nonprofit">
+            <div class="visual-card-image">
+              <div class="visual-card-image-placeholder">Mission-driven</div>
+            </div>
+            <div class="visual-card-body">
+              <div class="visual-card-title">Nonprofit / Mission</div>
+              <div class="visual-card-sub">Tells a story, raises awareness, asks for action.</div>
+            </div>
+          </div>
+          <div class="visual-card" data-value="not-sure">
+            <div class="visual-card-image">
+              <div class="visual-card-image-placeholder">We'll figure it out</div>
+            </div>
+            <div class="visual-card-body">
+              <div class="visual-card-title">Not sure yet</div>
+              <div class="visual-card-sub">Let's talk through it on the call.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: FEELING -->
+      <div class="wizard-step" data-step="3">
+        <div class="wizard-step-header">
+          <div class="wizard-step-num">Step 03</div>
+          <h2>What should the site <em>feel like?</em></h2>
+          <p class="meta">When someone lands on it for the first time — what's the vibe?</p>
+          <div class="multi-hint">Pick up to 3</div>
+        </div>
+        <div class="visual-grid cols-4" data-field="feeling" data-multi="true" data-max="3">
+          <div class="visual-card" data-value="calm-quiet">
+            <div class="visual-card-image"><div class="visual-card-image-placeholder">Calm</div></div>
+            <div class="visual-card-body"><div class="visual-card-title">Calm & quiet</div><div class="visual-card-sub">Spacious, slow, easy to breathe</div></div>
+          </div>
+          <div class="visual-card" data-value="bold-loud">
+            <div class="visual-card-image"><div class="visual-card-image-placeholder">Bold</div></div>
+            <div class="visual-card-body"><div class="visual-card-title">Bold & loud</div><div class="visual-card-sub">Big, confident, attention-grabbing</div></div>
+          </div>
+          <div class="visual-card" data-value="warm-personable">
+            <div class="visual-card-image"><div class="visual-card-image-placeholder">Warm</div></div>
+            <div class="visual-card-body"><div class="visual-card-title">Warm & personable</div><div class="visual-card-sub">Friendly, approachable, human</div></div>
+          </div>
+          <div class="visual-card" data-value="sharp-professional">
+            <div class="visual-card-image"><div class="visual-card-image-placeholder">Sharp</div></div>
+            <div class="visual-card-body"><div class="visual-card-title">Sharp & professional</div><div class="visual-card-sub">Polished, corporate, established</div></div>
+          </div>
+          <div class="visual-card" data-value="elegant-refined">
+            <div class="visual-card-image"><div class="visual-card-image-placeholder">Elegant</div></div>
+            <div class="visual-card-body"><div class="visual-card-title">Elegant & refined</div><div class="visual-card-sub">Luxurious, considered, timeless</div></div>
+          </div>
+          <div class="visual-card" data-value="playful">
+            <div class="visual-card-image"><div class="visual-card-image-placeholder">Playful</div></div>
+            <div class="visual-card-body"><div class="visual-card-title">Playful</div><div class="visual-card-sub">Fun, energetic, surprising</div></div>
+          </div>
+          <div class="visual-card" data-value="grounded-organic">
+            <div class="visual-card-image"><div class="visual-card-image-placeholder">Grounded</div></div>
+            <div class="visual-card-body"><div class="visual-card-title">Grounded & organic</div><div class="visual-card-sub">Earthy, natural, slow-paced</div></div>
+          </div>
+          <div class="visual-card" data-value="modern-techy">
+            <div class="visual-card-image"><div class="visual-card-image-placeholder">Modern</div></div>
+            <div class="visual-card-body"><div class="visual-card-title">Modern & techy</div><div class="visual-card-sub">Forward, sleek, digital-native</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: GOAL -->
+      <div class="wizard-step" data-step="4">
+        <div class="wizard-step-header">
+          <div class="wizard-step-num">Step 04</div>
+          <h2>What's the #1 thing it <em>needs to do?</em></h2>
+          <p class="meta">If a visitor only does ONE thing on your site — what is it?</p>
+        </div>
+        <div class="checklist-grid" data-field="primary_goal" data-multi="false">
+          <div class="checklist-item" data-value="book-call"><div class="checklist-checkbox"></div><div class="label">Book a call / consultation</div></div>
+          <div class="checklist-item" data-value="hire-me"><div class="checklist-checkbox"></div><div class="label">Hire me / inquire about services</div></div>
+          <div class="checklist-item" data-value="buy-product"><div class="checklist-checkbox"></div><div class="label">Buy a product or course</div></div>
+          <div class="checklist-item" data-value="join-list"><div class="checklist-checkbox"></div><div class="label">Join my email list</div></div>
+          <div class="checklist-item" data-value="see-work"><div class="checklist-checkbox"></div><div class="label">See my work / portfolio</div></div>
+          <div class="checklist-item" data-value="learn-mission"><div class="checklist-checkbox"></div><div class="label">Learn about my mission</div></div>
+          <div class="checklist-item" data-value="donate"><div class="checklist-checkbox"></div><div class="label">Donate / support us</div></div>
+          <div class="checklist-item" data-value="contact"><div class="checklist-checkbox"></div><div class="label">Get in touch (general)</div></div>
+        </div>
+      </div>
+
+      <!-- STEP 5: VISUAL STYLE -->
+      <div class="wizard-step" data-step="5">
+        <div class="wizard-step-header">
+          <div class="wizard-step-num">Step 05</div>
+          <h2>Pick your <em>visual style direction.</em></h2>
+          <p class="meta">Which of these moods feel right for your brand?</p>
+          <div class="multi-hint">Pick up to 3</div>
+        </div>
+        <div class="visual-grid cols-3" id="visual-styles-grid" data-field="visual_styles" data-multi="true" data-max="3">
+          <!-- Rendered from config -->
+        </div>
+      </div>
+
+      <!-- STEP 6: HEADER LAYOUT -->
+      <div class="wizard-step" data-step="6">
+        <div class="wizard-step-header">
+          <div class="wizard-step-num">Step 06</div>
+          <h2>How should the <em>top of your site</em> look?</h2>
+          <p class="meta">The header is the first thing every visitor sees. Pick the layout that fits.</p>
+        </div>
+        <div class="visual-grid cols-3" data-field="header_layout" data-multi="false">
+
+          <div class="visual-card header-layout-card" data-value="centered-stacked">
+            <div class="visual-card-image">
+              <div class="header-wireframe">
+                <div class="header-wireframe-row hw-center"><div class="hw-logo big"></div></div>
+                <div class="header-wireframe-row hw-center"><div class="hw-nav-link"></div><div class="hw-nav-link"></div><div class="hw-nav-link"></div><div class="hw-nav-link"></div></div>
+              </div>
+            </div>
+            <div class="visual-card-body">
+              <div class="visual-card-title">Centered stacked</div>
+              <div class="visual-card-sub">Big logo on top, nav underneath. Editorial, balanced.</div>
+            </div>
+          </div>
+
+          <div class="visual-card header-layout-card" data-value="left-logo-right-nav">
+            <div class="visual-card-image">
+              <div class="header-wireframe">
+                <div class="header-wireframe-row hw-spread">
+                  <div class="hw-logo"></div>
+                  <div class="hw-nav"><div class="hw-nav-link"></div><div class="hw-nav-link"></div><div class="hw-nav-link"></div><div class="hw-cta"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="visual-card-body">
+              <div class="visual-card-title">Left logo, right nav</div>
+              <div class="visual-card-sub">Classic web layout. Clear, scannable.</div>
+            </div>
+          </div>
+
+          <div class="visual-card header-layout-card" data-value="logo-center-split-nav">
+            <div class="visual-card-image">
+              <div class="header-wireframe">
+                <div class="header-wireframe-row hw-spread">
+                  <div class="hw-nav" style="justify-content: flex-start;"><div class="hw-nav-link"></div><div class="hw-nav-link"></div></div>
+                  <div class="hw-logo"></div>
+                  <div class="hw-nav"><div class="hw-nav-link"></div><div class="hw-nav-link"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="visual-card-body">
+              <div class="visual-card-title">Logo center, split nav</div>
+              <div class="visual-card-sub">Symmetrical, fashion/luxury feel.</div>
+            </div>
+          </div>
+
+          <div class="visual-card header-layout-card" data-value="minimal-hamburger">
+            <div class="visual-card-image">
+              <div class="header-wireframe">
+                <div class="header-wireframe-row hw-spread">
+                  <div class="hw-logo"></div>
+                  <div class="hw-nav-link" style="width: 18px; height: 12px;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="visual-card-body">
+              <div class="visual-card-title">Minimal + menu icon</div>
+              <div class="visual-card-sub">Logo + hamburger. Maximum white space.</div>
+            </div>
+          </div>
+
+          <div class="visual-card header-layout-card" data-value="full-nav-no-cta">
+            <div class="visual-card-image">
+              <div class="header-wireframe">
+                <div class="header-wireframe-row hw-spread">
+                  <div class="hw-logo"></div>
+                  <div class="hw-nav"><div class="hw-nav-link"></div><div class="hw-nav-link"></div><div class="hw-nav-link"></div><div class="hw-nav-link"></div><div class="hw-nav-link"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="visual-card-body">
+              <div class="visual-card-title">Wide nav, no CTA</div>
+              <div class="visual-card-sub">All nav links visible, no button. Cleaner, less salesy.</div>
+            </div>
+          </div>
+
+          <div class="visual-card header-layout-card" data-value="not-sure-header">
+            <div class="visual-card-image">
+              <div class="header-wireframe" style="display: flex; align-items: center; justify-content: center; min-height: 60px;">
+                <span style="font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 0.9rem;">Surprise me</span>
+              </div>
+            </div>
+            <div class="visual-card-body">
+              <div class="visual-card-title">Surprise me</div>
+              <div class="visual-card-sub">Pick what fits the brand best.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- STEP 7: COLOR -->
+      <div class="wizard-step" data-step="7">
+        <div class="wizard-step-header">
+          <div class="wizard-step-num">Step 07</div>
+          <h2>Which <em>color combinations</em> resonate?</h2>
+          <p class="meta">Pick the palettes that feel right for your brand. We'll refine on the call.</p>
+          <div class="multi-hint">Pick up to 3</div>
+        </div>
+        <div class="color-grid" id="color-grid" data-field="color_combos" data-multi="true" data-max="3">
+          <!-- Rendered from config -->
+        </div>
+      </div>
+
+      <!-- STEP 8: FONTS -->
+      <div class="wizard-step" data-step="8">
+        <div class="wizard-step-header">
+          <div class="wizard-step-num">Step 08</div>
+          <h2>Pick your <em>font pairings.</em></h2>
+          <p class="meta">Each option pairs a headline font with a body font. Each one creates a different feel.</p>
+          <div class="multi-hint">Pick up to 3</div>
+        </div>
+        <div class="font-grid" data-field="font_pairings" data-multi="true" data-max="3">
+
+          <div class="font-card" data-value="fraunces-inter">
+            <h3 class="font-card-headline" style="font-family: 'Fraunces', serif; font-weight: 500; font-style: italic;">Editorial confidence.</h3>
+            <p class="font-card-body" style="font-family: 'Inter', sans-serif;">A modern serif paired with a clean sans-serif. Magazine-quality with everyday readability.</p>
+            <div class="font-card-meta">Fraunces + Inter</div>
+          </div>
+
+          <div class="font-card" data-value="playfair-lora">
+            <h3 class="font-card-headline" style="font-family: 'Playfair Display', serif; font-weight: 600;">Timeless &amp; refined.</h3>
+            <p class="font-card-body" style="font-family: 'Lora', serif;">A high-contrast display serif with a softer text serif. Classic, polished, trustworthy.</p>
+            <div class="font-card-meta">Playfair Display + Lora</div>
+          </div>
+
+          <div class="font-card" data-value="dmserif-dmsans">
+            <h3 class="font-card-headline" style="font-family: 'DM Serif Display', serif; font-weight: 400;">Bold &amp; modern.</h3>
+            <p class="font-card-body" style="font-family: 'DM Sans', sans-serif;">A statement serif with a geometric sans body. Confident, contemporary, balanced.</p>
+            <div class="font-card-meta">DM Serif Display + DM Sans</div>
+          </div>
+
+          <div class="font-card" data-value="libre-source">
+            <h3 class="font-card-headline" style="font-family: 'Libre Baskerville', serif; font-weight: 700;">Classic &amp; clear.</h3>
+            <p class="font-card-body" style="font-family: 'Source Sans 3', sans-serif;">A traditional book serif with a clean sans body. Authoritative, approachable.</p>
+            <div class="font-card-meta">Libre Baskerville + Source Sans</div>
+          </div>
+
+          <div class="font-card" data-value="crimson-karla">
+            <h3 class="font-card-headline" style="font-family: 'Crimson Pro', serif; font-weight: 500; font-style: italic;">Warm &amp; literary.</h3>
+            <p class="font-card-body" style="font-family: 'Karla', sans-serif;">A literary serif with a warm sans. Personable, thoughtful, considered.</p>
+            <div class="font-card-meta">Crimson Pro + Karla</div>
+          </div>
+
+          <div class="font-card" data-value="poppins-lato">
+            <h3 class="font-card-headline" style="font-family: 'Poppins', sans-serif; font-weight: 700;">Clean &amp; friendly.</h3>
+            <p class="font-card-body" style="font-family: 'Lato', sans-serif;">All sans-serif. Geometric headline + humanist body. Modern, friendly, accessible.</p>
+            <div class="font-card-meta">Poppins + Lato</div>
+          </div>
+
+          <div class="font-card" data-value="montserrat-worksans">
+            <h3 class="font-card-headline" style="font-family: 'Montserrat', sans-serif; font-weight: 700;">Confident &amp; current.</h3>
+            <p class="font-card-body" style="font-family: 'Work Sans', sans-serif;">All sans. Strong geometric headline + neutral body. Tech-forward, professional.</p>
+            <div class="font-card-meta">Montserrat + Work Sans</div>
+          </div>
+
+          <div class="font-card" data-value="space-dmsans">
+            <h3 class="font-card-headline" style="font-family: 'Space Grotesk', sans-serif; font-weight: 600;">Modern &amp; sharp.</h3>
+            <p class="font-card-body" style="font-family: 'DM Sans', sans-serif;">A geometric headline with subtle quirks paired with a clean body. Forward-looking.</p>
+            <div class="font-card-meta">Space Grotesk + DM Sans</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- STEP 9: TONE OF VOICE -->
+      <div class="wizard-step" data-step="9">
+        <div class="wizard-step-header">
+          <div class="wizard-step-num">Step 09</div>
+          <h2>What's your <em>tone of voice?</em></h2>
+          <p class="meta">How should the writing on your site sound?</p>
+          <div class="multi-hint">Pick up to 2</div>
+        </div>
+        <div class="visual-grid cols-3" data-field="tone" data-multi="true" data-max="2">
+          <div class="visual-card" data-value="confident-direct">
+            <div class="visual-card-image"><div class="visual-card-image-placeholder">Direct &amp; clear</div></div>
+            <div class="visual-card-body"><div class="visual-card-title">Confident & direct</div><div class="visual-card-sub">No fluff. Says what it means. Authoritative.</div></div>
+          </div>
+          <div class="visual-card" data-value="warm-personable">
+            <div class="visual-card-image"><div class="visual-card-image-placeholder">Like a friend</div></div>
+            <div class="visual-card-body"><div class="visual-card-title">Warm & personable</div><div class="visual-card-sub">First-person, conversational, human.</div></div>
+          </div>
+          <div class="visual-card" data-value="polished-professional">
+            <div class="visual-card-image"><div class="visual-card-image-placeholder">Buttoned-up</div></div>
+            <div class="visual-card-body"><div class="visual-card-title">Polished & professional</div><div class="visual-card-sub">Formal, considered, established.</div></div>
+          </div>
+          <div class="visual-card" data-value="playful-witty">
+            <div class="visual-card-image"><div class="visual-card-image-placeholder">Light & fun</div></div>
+            <div class="visual-card-body"><div class="visual-card-title">Playful & witty</div><div class="visual-card-sub">Personality, jokes, surprises.</div></div>
+          </div>
+          <div class="visual-card" data-value="aspirational">
+            <div class="visual-card-image"><div class="visual-card-image-placeholder">Elevated</div></div>
+            <div class="visual-card-body"><div class="visual-card-title">Aspirational</div><div class="visual-card-sub">Refined, evocative, brand-magazine.</div></div>
+          </div>
+          <div class="visual-card" data-value="straightforward">
+            <div class="visual-card-image"><div class="visual-card-image-placeholder">Plain English</div></div>
+            <div class="visual-card-body"><div class="visual-card-title">Straightforward</div><div class="visual-card-sub">Plainspoken, accessible, no jargon.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 10: PAGES -->
+      <div class="wizard-step" data-step="10">
+        <div class="wizard-step-header">
+          <div class="wizard-step-num">Step 10</div>
+          <h2>Which <em>pages</em> do you need?</h2>
+          <p class="meta">For multipage sites only. Solo + built-out one-pagers can skip this.</p>
+          <div class="multi-hint">Pick everything that applies</div>
+        </div>
+        <div class="checklist-grid" data-field="pages" data-multi="true">
+          <div class="checklist-item" data-value="home"><div class="checklist-checkbox"></div><div class="label">Home (always)</div></div>
+          <div class="checklist-item" data-value="about"><div class="checklist-checkbox"></div><div class="label">About / Bio</div></div>
+          <div class="checklist-item" data-value="services"><div class="checklist-checkbox"></div><div class="label">Services / Offerings</div></div>
+          <div class="checklist-item" data-value="work"><div class="checklist-checkbox"></div><div class="label">Work / Portfolio</div></div>
+          <div class="checklist-item" data-value="contact"><div class="checklist-checkbox"></div><div class="label">Contact</div></div>
+          <div class="checklist-item" data-value="blog"><div class="checklist-checkbox"></div><div class="label">Blog / News</div></div>
+          <div class="checklist-item" data-value="events"><div class="checklist-checkbox"></div><div class="label">Events / Calendar</div></div>
+          <div class="checklist-item" data-value="testimonials"><div class="checklist-checkbox"></div><div class="label">Testimonials</div></div>
+          <div class="checklist-item" data-value="faq"><div class="checklist-checkbox"></div><div class="label">FAQ</div></div>
+          <div class="checklist-item" data-value="resources"><div class="checklist-checkbox"></div><div class="label">Resources / Free downloads</div></div>
+          <div class="checklist-item" data-value="store"><div class="checklist-checkbox"></div><div class="label">Shop / Products</div></div>
+          <div class="checklist-item" data-value="custom"><div class="checklist-checkbox"></div><div class="label">Custom (we'll discuss)</div></div>
+        </div>
+      </div>
+
+      <!-- STEP 11: FEATURES -->
+      <div class="wizard-step" data-step="11">
+        <div class="wizard-step-header">
+          <div class="wizard-step-num">Step 11</div>
+          <h2>What <em>features</em> do you need?</h2>
+          <p class="meta">Specific functionality. Pick everything that applies.</p>
+          <div class="multi-hint">Multi-select</div>
+        </div>
+        <div class="checklist-grid" data-field="features" data-multi="true">
+          <div class="checklist-item" data-value="contact-form"><div class="checklist-checkbox"></div><div class="label">Contact form</div></div>
+          <div class="checklist-item" data-value="photo-gallery"><div class="checklist-checkbox"></div><div class="label">Photo gallery / slideshow</div></div>
+          <div class="checklist-item" data-value="embedded-video"><div class="checklist-checkbox"></div><div class="label">Embedded video</div></div>
+          <div class="checklist-item" data-value="testimonials"><div class="checklist-checkbox"></div><div class="label">Testimonials carousel</div></div>
+          <div class="checklist-item" data-value="newsletter"><div class="checklist-checkbox"></div><div class="label">Newsletter signup</div></div>
+          <div class="checklist-item" data-value="booking"><div class="checklist-checkbox"></div><div class="label">Booking / scheduling embed</div></div>
+          <div class="checklist-item" data-value="payment"><div class="checklist-checkbox"></div><div class="label">Payment / Stripe link</div></div>
+          <div class="checklist-item" data-value="downloads"><div class="checklist-checkbox"></div><div class="label">File downloads</div></div>
+          <div class="checklist-item" data-value="map"><div class="checklist-checkbox"></div><div class="label">Embedded map</div></div>
+          <div class="checklist-item" data-value="social-feed"><div class="checklist-checkbox"></div><div class="label">Social media feed</div></div>
+          <div class="checklist-item" data-value="search"><div class="checklist-checkbox"></div><div class="label">Site search</div></div>
+          <div class="checklist-item" data-value="cms-admin"><div class="checklist-checkbox"></div><div class="label">Self-managed admin panel</div></div>
+        </div>
+      </div>
+
+      <!-- STEP 12: PHOTOGRAPHY STYLE -->
+      <div class="wizard-step" data-step="12">
+        <div class="wizard-step-header">
+          <div class="wizard-step-num">Step 12</div>
+          <h2>What <em>photography style</em> fits?</h2>
+          <p class="meta">The look and feel of the photos that will live on your site.</p>
+          <div class="multi-hint">Pick up to 2</div>
+        </div>
+        <div class="visual-grid cols-3" id="photo-styles-grid" data-field="photography_style" data-multi="true" data-max="2">
+          <!-- Rendered from config -->
+        </div>
+      </div>
+
+      <!-- STEP 13: IMAGERY SOURCES -->
+      <div class="wizard-step" data-step="13">
+        <div class="wizard-step-header">
+          <div class="wizard-step-num">Step 13</div>
+          <h2>Where will the <em>photos come from?</em></h2>
+          <p class="meta">Be honest — this affects timeline and budget.</p>
+        </div>
+        <div class="checklist-grid" data-field="imagery_sources" data-multi="true">
+          <div class="checklist-item" data-value="own-photos"><div class="checklist-checkbox"></div><div class="label">I have my own photos ready</div></div>
+          <div class="checklist-item" data-value="will-shoot"><div class="checklist-checkbox"></div><div class="label">I'll do a photoshoot first</div></div>
+          <div class="checklist-item" data-value="stock"><div class="checklist-checkbox"></div><div class="label">I'll use stock photography</div></div>
+          <div class="checklist-item" data-value="recommend-stock"><div class="checklist-checkbox"></div><div class="label">I need recommendations for stock photos</div></div>
+          <div class="checklist-item" data-value="mix"><div class="checklist-checkbox"></div><div class="label">A mix of my own + stock</div></div>
+          <div class="checklist-item" data-value="text-only"><div class="checklist-checkbox"></div><div class="label">Mostly text — minimal photos needed</div></div>
+        </div>
+      </div>
+
+      <!-- STEP 14: INSPIRATION + AVOID -->
+      <div class="wizard-step" data-step="14">
+        <div class="wizard-step-header">
+          <div class="wizard-step-num">Step 14</div>
+          <h2>Inspiration <em>& deal-breakers.</em></h2>
+          <p class="meta">Sites you love and things you definitely don't want.</p>
+        </div>
+        <div class="wizard-input-list">
+          <label style="font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); font-weight: 600; margin-bottom: 0.4rem; display: block;">Sites you love (paste up to 3 URLs)</label>
+          <input type="url" id="w-inspo-1" placeholder="https://...">
+          <input type="url" id="w-inspo-2" placeholder="https://...">
+          <input type="url" id="w-inspo-3" placeholder="https://...">
+
+          <label style="font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); font-weight: 600; margin: 1.5rem 0 0.4rem; display: block;">Anything to avoid?</label>
+          <textarea id="w-avoid" placeholder="Colors, styles, layouts, fonts, vibes — anything that's a hard no."></textarea>
+        </div>
+      </div>
+
+      <!-- STEP 15: NOTES + REVIEW -->
+      <div class="wizard-step" data-step="15">
+        <div class="wizard-step-header">
+          <div class="wizard-step-num">Step 15</div>
+          <h2>Last step — <em>review &amp; send.</em></h2>
+          <p class="meta">Drop any final notes for me, then submit. Both of us get a copy.</p>
+        </div>
+        <div class="wizard-input-list" style="margin-bottom: 2rem;">
+          <label style="font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); font-weight: 600; margin-bottom: 0.4rem; display: block;">Anything else for me?</label>
+          <textarea id="w-notes" placeholder="Stuff that didn't fit above — your audience, deadlines, things you're worried about, things you're excited about. Whatever helps me build this for you."></textarea>
+        </div>
+
+        <div class="review-grid" id="review-grid">
+          <!-- Built by JS on entering this step -->
+        </div>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="wizard-step" data-step="16">
+        <div class="wizard-success">
+          <div class="wizard-success-mark">✓</div>
+          <h2 style="font-family: var(--display); font-weight: 500; font-size: 2.4rem; margin: 0 0 1rem; color: var(--ink);">Sent. <em style="font-style: italic; color: var(--red);">Talk soon.</em></h2>
+          <p style="font-family: var(--serif); font-size: 1.15rem; color: var(--ink-soft); line-height: 1.55; margin: 0 0 2rem;">Your answers are on their way to my inbox. You'll get a copy at the email you provided too — keep it for the call.</p>
+          <a href="index.html" class="btn btn-secondary">Back to home</a>
+        </div>
+      </div>
+
+      <!-- NAV -->
+      <div class="wizard-nav" id="wizard-nav">
+        <button class="btn btn-secondary" id="wiz-back" style="visibility: hidden;">← Back</button>
+        <div class="wizard-nav-spacer"></div>
+        <button class="wizard-skip" id="wiz-skip">Skip this</button>
+        <button class="btn btn-primary" id="wiz-next">Next →</button>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-logo-mark">
+      <div class="footer-logo-mark-inner">
+        <a href="index.html"><img src="assets/images/logo-primary-web.png" alt="By Chevelle" data-bind-attr="site.logo_footer"></a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+      <div>© <span data-bind="site.copyright_year">2026</span> By Chevelle. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+</div><!-- end gate-preview-wrap -->
+
+<script src="assets/js/site.js"></script>
+<script>
+  // ============ PASSWORD GATE ============
+  let validPasswords = ['demo'];
+  let consultationConfig = null;
+  let formspreeEndpoint = '';
+
+  document.addEventListener('config:ready', () => {
+    if (window.VALID_CLIENT_PASSWORDS && window.VALID_CLIENT_PASSWORDS.length) {
+      validPasswords = window.VALID_CLIENT_PASSWORDS;
+    }
+    if (window.SITE_CONFIG && window.SITE_CONFIG.consultation) {
+      consultationConfig = window.SITE_CONFIG.consultation;
+      formspreeEndpoint = consultationConfig.formspree_endpoint || '';
+      if (consultationConfig.intro_lead) {
+        const introEl = document.getElementById('wizard-intro-lead');
+        if (introEl) introEl.textContent = consultationConfig.intro_lead;
+      }
+      renderConfigDrivenSteps();
+    }
+  });
+
+  document.getElementById('gate-submit').addEventListener('click', tryUnlock);
+  document.getElementById('gate-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') tryUnlock();
+  });
+
+  function tryUnlock() {
+    const pw = document.getElementById('gate-input').value.trim().toLowerCase();
+    const error = document.getElementById('gate-error');
+    if (validPasswords.includes(pw)) {
+      unlockPage();
+      sessionStorage.setItem('consult-unlocked', '1');
+      initWizard();
+    } else {
+      error.textContent = 'Wrong password. Reach out if you need it resent.';
+      document.getElementById('gate-input').focus();
+      document.getElementById('gate-input').select();
+    }
+  }
+
+  function unlockPage() {
+    const wrap = document.getElementById('page-wrap');
+    if (wrap) wrap.classList.remove('locked');
+  }
+
+  if (sessionStorage.getItem('consult-unlocked') === '1') {
+    unlockPage();
+    setTimeout(initWizard, 100);
+  }
+
+  // ============ CONFIG-DRIVEN VISUAL STEPS ============
+  function renderConfigDrivenSteps() {
+    if (!consultationConfig) return;
+
+    // Visual Styles (step 5)
+    const stylesGrid = document.getElementById('visual-styles-grid');
+    if (stylesGrid && consultationConfig.visual_styles) {
+      stylesGrid.innerHTML = consultationConfig.visual_styles.map(s => `
+        <div class="visual-card" data-value="${s.id}">
+          <div class="visual-card-image">
+            ${s.image
+              ? `<img src="${s.image}" alt="${s.title}">`
+              : `<div class="visual-card-image-placeholder">${s.title}</div>`}
+          </div>
+          <div class="visual-card-body">
+            <div class="visual-card-title">${s.title}</div>
+            <div class="visual-card-sub">${s.subtitle}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Color Combos (step 7)
+    const colorGrid = document.getElementById('color-grid');
+    if (colorGrid && consultationConfig.color_combos) {
+      colorGrid.innerHTML = consultationConfig.color_combos.map(c => `
+        <div class="color-card" data-value="${c.id}">
+          <div class="color-card-preview">
+            ${c.image
+              ? `<img src="${c.image}" alt="${c.label}">`
+              : `<div class="color-card-preview-placeholder">
+                  <div style="background: var(--cream-deep);"></div>
+                  <div style="background: var(--pink);"></div>
+                  <div style="background: var(--red);"></div>
+                </div>`}
+          </div>
+          <div class="color-card-label">${c.label}</div>
+        </div>
+      `).join('');
+    }
+
+    // Photography Styles (step 12)
+    const photoGrid = document.getElementById('photo-styles-grid');
+    if (photoGrid && consultationConfig.photography_styles) {
+      photoGrid.innerHTML = consultationConfig.photography_styles.map(s => `
+        <div class="visual-card" data-value="${s.id}">
+          <div class="visual-card-image">
+            ${s.image
+              ? `<img src="${s.image}" alt="${s.title}">`
+              : `<div class="visual-card-image-placeholder">${s.title}</div>`}
+          </div>
+          <div class="visual-card-body">
+            <div class="visual-card-title">${s.title}</div>
+            <div class="visual-card-sub">${s.subtitle}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Re-attach click handlers since these were just rendered
+    attachSelectionHandlers();
+  }
+
+  // ============ WIZARD ============
+  const TOTAL_STEPS = 15;
+  const STEP_NAMES = [
+    'Getting started', 'Big picture', 'Feeling', 'Goal',
+    'Visual style', 'Header layout', 'Color', 'Fonts',
+    'Tone', 'Pages', 'Features', 'Photography',
+    'Imagery', 'Inspiration', 'Notes & send'
+  ];
+  let currentStep = 1;
+  const STORAGE_KEY = 'consult-wizard-state';
+
+  function initWizard() {
+    buildJumpDots();
+    attachSelectionHandlers();
+    document.getElementById('wiz-back').addEventListener('click', goBack);
+    document.getElementById('wiz-next').addEventListener('click', goNext);
+    document.getElementById('wiz-skip').addEventListener('click', skipStep);
+    restoreState();
+    showStep(currentStep);
+  }
+
+  function buildJumpDots() {
+    const wrap = document.getElementById('wizard-jump');
+    wrap.innerHTML = '';
+    for (let i = 1; i <= TOTAL_STEPS; i++) {
+      const btn = document.createElement('button');
+      btn.className = 'wizard-jump-dot';
+      btn.textContent = i;
+      btn.title = `Step ${i}: ${STEP_NAMES[i-1]}`;
+      btn.addEventListener('click', () => showStep(i));
+      wrap.appendChild(btn);
+    }
+  }
+
+  function attachSelectionHandlers() {
+    // Visual cards, color cards, font cards, checklist items — all support data-multi
+    document.querySelectorAll('[data-field]').forEach(group => {
+      const isMulti = group.dataset.multi === 'true';
+      const max = parseInt(group.dataset.max || '0');
+      group.querySelectorAll('.visual-card, .color-card, .font-card, .checklist-item').forEach(item => {
+        // Avoid double-binding
+        if (item._consultBound) return;
+        item._consultBound = true;
+        item.addEventListener('click', () => {
+          if (!isMulti) {
+            group.querySelectorAll('.selected').forEach(s => s.classList.remove('selected'));
+            item.classList.add('selected');
+          } else {
+            // Multi-select with optional max
+            if (item.classList.contains('selected')) {
+              item.classList.remove('selected');
+            } else {
+              if (max > 0) {
+                const selected = group.querySelectorAll('.selected').length;
+                if (selected >= max) {
+                  // Pop the oldest selection
+                  const first = group.querySelector('.selected');
+                  if (first) first.classList.remove('selected');
+                }
+              }
+              item.classList.add('selected');
+            }
+          }
+          saveState();
+        });
+      });
+    });
+
+    // Save text inputs as user types
+    document.querySelectorAll('.wizard input, .wizard textarea, .wizard select').forEach(el => {
+      if (el._consultBound) return;
+      el._consultBound = true;
+      el.addEventListener('input', saveState);
+      el.addEventListener('change', saveState);
+    });
+  }
+
+  function showStep(n) {
+    if (n < 1 || n > TOTAL_STEPS + 1) return;
+    currentStep = n;
+    document.querySelectorAll('.wizard-step').forEach(s => s.classList.remove('active'));
+    const step = document.querySelector(`.wizard-step[data-step="${n}"]`);
+    if (step) step.classList.add('active');
+
+    // Progress bar
+    const pct = (n / TOTAL_STEPS) * 100;
+    document.getElementById('progress-fill').style.width = `${Math.min(pct, 100)}%`;
+    document.getElementById('progress-current').textContent = n > TOTAL_STEPS ? 'Done' : `Step ${n}`;
+    document.getElementById('progress-name').textContent = n > TOTAL_STEPS ? 'Submitted' : STEP_NAMES[n-1];
+    document.getElementById('progress-total').textContent = TOTAL_STEPS;
+
+    // Jump dots
+    document.querySelectorAll('.wizard-jump-dot').forEach((dot, i) => {
+      dot.classList.remove('current', 'completed');
+      if (i + 1 < n) dot.classList.add('completed');
+      if (i + 1 === n) dot.classList.add('current');
+    });
+
+    // Nav buttons
+    const nav = document.getElementById('wizard-nav');
+    const back = document.getElementById('wiz-back');
+    const next = document.getElementById('wiz-next');
+    const skip = document.getElementById('wiz-skip');
+
+    if (n > TOTAL_STEPS) {
+      nav.style.display = 'none';
+      return;
+    } else {
+      nav.style.display = '';
+    }
+
+    back.style.visibility = n > 1 ? 'visible' : 'hidden';
+
+    if (n === TOTAL_STEPS) {
+      next.textContent = 'Submit my answers →';
+      skip.style.display = 'none';
+      buildReview();
+    } else {
+      next.textContent = 'Next →';
+      skip.style.display = '';
+    }
+
+    // Scroll to top of wizard
+    window.scrollTo({ top: document.querySelector('.wizard-progress').offsetTop - 80, behavior: 'smooth' });
+  }
+
+  function goBack() {
+    if (currentStep > 1) showStep(currentStep - 1);
+  }
+
+  function goNext() {
+    if (currentStep === TOTAL_STEPS) {
+      submitWizard();
+      return;
+    }
+    // Validate step 1 requires name + email
+    if (currentStep === 1) {
+      const name = document.getElementById('w-name').value.trim();
+      const email = document.getElementById('w-email').value.trim();
+      if (!name || !email) {
+        alert('Please enter your name and email so I know who I\'m talking to.');
+        return;
+      }
+    }
+    showStep(currentStep + 1);
+  }
+
+  function skipStep() {
+    showStep(currentStep + 1);
+  }
+
+  // ============ STATE PERSISTENCE ============
+  function collectState() {
+    const state = {
+      step: currentStep,
+      name: document.getElementById('w-name').value,
+      email: document.getElementById('w-email').value,
+      business: document.getElementById('w-business').value,
+      mode: document.getElementById('w-mode').value,
+      inspo_1: document.getElementById('w-inspo-1').value,
+      inspo_2: document.getElementById('w-inspo-2').value,
+      inspo_3: document.getElementById('w-inspo-3').value,
+      avoid: document.getElementById('w-avoid').value,
+      notes: document.getElementById('w-notes').value,
+      selections: {}
+    };
+    document.querySelectorAll('[data-field]').forEach(group => {
+      const field = group.dataset.field;
+      const selected = [...group.querySelectorAll('.selected')].map(el => el.dataset.value);
+      state.selections[field] = selected;
+    });
+    return state;
+  }
+
+  function saveState() {
+    try {
+      const state = collectState();
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) { /* ignore */ }
+  }
+
+  function restoreState() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const state = JSON.parse(raw);
+      if (state.name) document.getElementById('w-name').value = state.name;
+      if (state.email) document.getElementById('w-email').value = state.email;
+      if (state.business) document.getElementById('w-business').value = state.business;
+      if (state.mode) document.getElementById('w-mode').value = state.mode;
+      if (state.inspo_1) document.getElementById('w-inspo-1').value = state.inspo_1;
+      if (state.inspo_2) document.getElementById('w-inspo-2').value = state.inspo_2;
+      if (state.inspo_3) document.getElementById('w-inspo-3').value = state.inspo_3;
+      if (state.avoid) document.getElementById('w-avoid').value = state.avoid;
+      if (state.notes) document.getElementById('w-notes').value = state.notes;
+      if (state.selections) {
+        Object.keys(state.selections).forEach(field => {
+          const group = document.querySelector(`[data-field="${field}"]`);
+          if (!group) return;
+          state.selections[field].forEach(value => {
+            const item = group.querySelector(`[data-value="${value}"]`);
+            if (item) item.classList.add('selected');
+          });
+        });
+      }
+      if (state.step && state.step >= 1 && state.step <= TOTAL_STEPS) {
+        currentStep = state.step;
+      }
+    } catch (e) { /* ignore */ }
+  }
+
+  // ============ REVIEW PANEL ============
+  function buildReview() {
+    const state = collectState();
+    const grid = document.getElementById('review-grid');
+    const sections = [];
+
+    sections.push({
+      label: 'You',
+      content: `<div class="answer">${state.name || '—'} · ${state.email || '—'}${state.business ? ' · ' + state.business : ''}</div>`
+    });
+
+    const labelMap = {
+      site_type: 'Site type',
+      feeling: 'Feeling',
+      primary_goal: 'Primary goal',
+      visual_styles: 'Visual style',
+      header_layout: 'Header layout',
+      color_combos: 'Color combos',
+      font_pairings: 'Font pairings',
+      tone: 'Tone of voice',
+      pages: 'Pages needed',
+      features: 'Features',
+      photography_style: 'Photography style',
+      imagery_sources: 'Imagery sources'
+    };
+
+    Object.keys(labelMap).forEach(field => {
+      const values = state.selections[field] || [];
+      const pills = values.length
+        ? `<div class="pills">${values.map(v => `<span class="pill">${prettyValue(v)}</span>`).join('')}</div>`
+        : `<div class="answer answer-empty">— skipped —</div>`;
+      sections.push({ label: labelMap[field], content: pills });
+    });
+
+    const inspoList = [state.inspo_1, state.inspo_2, state.inspo_3].filter(Boolean);
+    if (inspoList.length) {
+      sections.push({ label: 'Inspiration sites', content: `<div class="answer">${inspoList.join('<br>')}</div>` });
+    }
+    if (state.avoid) {
+      sections.push({ label: 'Avoid', content: `<div class="answer">${escapeHtml(state.avoid)}</div>` });
+    }
+    if (state.notes) {
+      sections.push({ label: 'Notes', content: `<div class="answer">${escapeHtml(state.notes)}</div>` });
+    }
+
+    grid.innerHTML = sections.map(s => `
+      <div class="review-section">
+        <h4>${s.label}</h4>
+        ${s.content}
+      </div>
+    `).join('');
+  }
+
+  function prettyValue(slug) {
+    return slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  }
+
+  function escapeHtml(s) {
+    return (s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  // ============ SUBMIT ============
+  async function submitWizard() {
+    const state = collectState();
+    const submitBtn = document.getElementById('wiz-next');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    const payload = {
+      name: state.name,
+      email: state.email,
+      business: state.business,
+      mode: state.mode,
+      inspiration_1: state.inspo_1,
+      inspiration_2: state.inspo_2,
+      inspiration_3: state.inspo_3,
+      avoid: state.avoid,
+      notes: state.notes
+    };
+    Object.keys(state.selections).forEach(field => {
+      payload[field] = state.selections[field].join(', ');
+    });
+
+    if (formspreeEndpoint) {
+      try {
+        const res = await fetch(formspreeEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('Submission failed');
+      } catch (e) {
+        alert('Something went wrong sending your answers. Please email them to me directly.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit my answers →';
+        return;
+      }
+    } else {
+      console.log('Consultation submission (no Formspree configured):', payload);
+    }
+
+    // Clear local state on successful submission
+    localStorage.removeItem(STORAGE_KEY);
+    showStep(TOTAL_STEPS + 1);
+  }
+</script>
+</body>
+</html>
